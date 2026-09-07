@@ -31,7 +31,7 @@
 
 
         /* =========================================
-           PAGE
+           BASE
         ========================================= */
 
         html,
@@ -50,6 +50,10 @@
             overflow: hidden;
         }
 
+
+        /* =========================================
+           MAIN PAGE
+        ========================================= */
 
         .page {
             position: relative;
@@ -75,7 +79,7 @@
             width: 100%;
             height: 100%;
 
-            background-image: url("IMG_4372.jpg");
+            background-image: url("IMG_5926.jpg");
 
             background-size: cover;
 
@@ -88,7 +92,7 @@
 
 
         /* =========================================
-           IMAGE OVERLAY
+           IMAGE GRADIENT
         ========================================= */
 
         .overlay {
@@ -98,10 +102,10 @@
             background:
                 linear-gradient(
                     to bottom,
-                    rgba(0, 0, 0, 0.04) 0%,
-                    rgba(0, 0, 0, 0.02) 38%,
-                    rgba(0, 0, 0, 0.14) 58%,
-                    rgba(0, 0, 0, 0.52) 78%,
+                    rgba(0, 0, 0, 0.02) 0%,
+                    rgba(0, 0, 0, 0.02) 35%,
+                    rgba(0, 0, 0, 0.10) 55%,
+                    rgba(0, 0, 0, 0.48) 75%,
                     rgba(0, 0, 0, 0.90) 100%
                 );
         }
@@ -113,13 +117,16 @@
 
         .content {
             position: relative;
+
             z-index: 2;
 
             width: 100%;
             height: 100%;
 
             display: flex;
+
             flex-direction: column;
+
             justify-content: flex-end;
 
             padding:
@@ -146,7 +153,8 @@
                 "Times New Roman",
                 serif;
 
-            font-size: clamp(40px, 11vw, 58px);
+            font-size:
+                clamp(40px, 11vw, 58px);
 
             line-height: 0.92;
 
@@ -158,8 +166,16 @@
 
             color: #ffffff;
 
+            /*
+             * Elegant layered shadow.
+             * Gives the name more depth without
+             * looking like a heavy graphic effect.
+             */
+
             text-shadow:
-                0 3px 20px rgba(0, 0, 0, 0.55);
+                0 2px 2px rgba(0, 0, 0, 0.35),
+                0 5px 14px rgba(0, 0, 0, 0.55),
+                0 10px 28px rgba(0, 0, 0, 0.30);
         }
 
 
@@ -172,9 +188,13 @@
 
             letter-spacing: 0.28em;
 
-            color: rgba(255, 255, 255, 0.78);
+            color:
+                rgba(255, 255, 255, 0.80);
 
             text-transform: uppercase;
+
+            text-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.55);
         }
 
 
@@ -184,19 +204,26 @@
 
         .exclusive-button {
 
+            position: relative;
+
             width: 100%;
+
             height: 58px;
 
             display: flex;
 
             align-items: center;
+
             justify-content: center;
 
-            gap: 13px;
+            gap: 10px;
 
-            border: 1px solid rgba(255, 255, 255, 0.68);
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.72);
 
-            background: rgba(8, 8, 8, 0.78);
+            background:
+                rgba(8, 8, 8, 0.78);
 
             color: #ffffff;
 
@@ -211,10 +238,21 @@
             text-transform: uppercase;
 
             backdrop-filter: blur(12px);
+
             -webkit-backdrop-filter: blur(12px);
 
             box-shadow:
-                0 8px 30px rgba(0, 0, 0, 0.22);
+                0 8px 30px
+                rgba(0, 0, 0, 0.28);
+
+            /*
+             * Subtle continuous movement.
+             */
+
+            animation:
+                buttonPulse 3.2s
+                ease-in-out
+                infinite;
 
             transition:
                 background 0.25s ease,
@@ -223,9 +261,29 @@
         }
 
 
+        /*
+         * Very subtle "breathing" animation.
+         * Designed to attract attention without
+         * looking cheap or aggressive.
+         */
+
+        @keyframes buttonPulse {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-3px);
+            }
+        }
+
+
         .exclusive-button:hover {
 
-            background: rgba(255, 255, 255, 0.12);
+            background:
+                rgba(255, 255, 255, 0.12);
 
             border-color: #ffffff;
         }
@@ -233,91 +291,33 @@
 
         .exclusive-button:active {
 
-            transform: scale(0.985);
+            transform:
+                scale(0.985);
         }
 
 
         /* =========================================
-           MINIMAL LOCK ICON
+           STAR
         ========================================= */
 
-        .lock {
+        .star {
 
-            width: 15px;
-            height: 15px;
-
-            display: inline-block;
-
-            position: relative;
-        }
-
-
-        .lock::before {
-
-            content: "";
-
-            position: absolute;
-
-            left: 2px;
-            bottom: 0;
-
-            width: 11px;
-            height: 9px;
-
-            border: 1.5px solid #ffffff;
-
-            border-radius: 1px;
-        }
-
-
-        .lock::after {
-
-            content: "";
-
-            position: absolute;
-
-            left: 4px;
-            top: 0;
-
-            width: 7px;
-            height: 7px;
-
-            border:
-                1.5px solid #ffffff;
-
-            border-bottom: none;
-
-            border-radius:
-                5px 5px 0 0;
-        }
-
-
-        /* =========================================
-           CLEAN ARROW
-        ========================================= */
-
-        .arrow {
-
-            display: inline-flex;
-
-            align-items: center;
-            justify-content: center;
-
-            width: 15px;
-            height: 15px;
-
-            font-size: 17px;
-
-            font-weight: 300;
+            font-size: 15px;
 
             line-height: 1;
 
             color: #ffffff;
+
+            display: inline-block;
+
+            text-shadow:
+                0 2px 8px
+                rgba(255, 255, 255, 0.18);
         }
 
 
         /* =========================================
-           PROFESSIONAL FOOTER
+           FOOTER
         ========================================= */
 
         .footer {
@@ -334,27 +334,33 @@
 
             text-transform: uppercase;
 
-            color: rgba(255, 255, 255, 0.42);
+            color:
+                rgba(255, 255, 255, 0.42);
+
+            text-shadow:
+                0 1px 5px
+                rgba(0, 0, 0, 0.5);
         }
 
 
-        .footer .copyright {
+        .copyright {
 
             display: block;
         }
 
 
-        .footer .website-credit {
+        .website-credit {
 
             display: block;
 
             margin-top: 3px;
 
-            color: rgba(255, 255, 255, 0.28);
-
             font-size: 7px;
 
             letter-spacing: 0.16em;
+
+            color:
+                rgba(255, 255, 255, 0.27);
         }
 
 
@@ -367,7 +373,11 @@
             .content {
 
                 padding-bottom:
-                    calc(18px + env(safe-area-inset-bottom));
+                    calc(
+                        18px
+                        +
+                        env(safe-area-inset-bottom)
+                    );
             }
 
 
@@ -425,7 +435,8 @@
                 max-width: 480px;
 
                 box-shadow:
-                    0 0 80px rgba(0, 0, 0, 0.65);
+                    0 0 80px
+                    rgba(0, 0, 0, 0.65);
             }
         }
 
@@ -439,17 +450,23 @@
     <main class="page">
 
 
-        <!-- MAIN IMAGE -->
+        <!-- =====================================
+             MAIN PHOTO
+        ====================================== -->
 
         <div class="hero-image"></div>
 
 
-        <!-- DARK GRADIENT -->
+        <!-- =====================================
+             DARK GRADIENT
+        ====================================== -->
 
         <div class="overlay"></div>
 
 
-        <!-- MAIN CONTENT -->
+        <!-- =====================================
+             CONTENT
+        ====================================== -->
 
         <div class="content">
 
@@ -477,14 +494,12 @@
                 id="onlyfansButton"
             >
 
-                <span class="lock"></span>
+                <span class="star">
+                    ★
+                </span>
 
                 <span>
                     Exclusive Content
-                </span>
-
-                <span class="arrow">
-                    ↗
                 </span>
 
             </a>
