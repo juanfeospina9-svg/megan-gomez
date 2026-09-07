@@ -150,32 +150,23 @@
 
 
         /* =========================================
-           NAME — SINGLE LINE
+           NAME
         ========================================= */
 
         .name {
-            width: 100%;
-
             font-family:
                 Georgia,
                 "Times New Roman",
                 serif;
 
-            /*
-             * Smaller responsive size so the full
-             * name stays on ONE line on mobile.
-             */
-
             font-size:
-                clamp(30px, 9.5vw, 52px);
+                clamp(40px, 11vw, 58px);
 
-            line-height: 1;
+            line-height: 0.92;
 
             font-weight: 700;
 
-            letter-spacing: 0.025em;
-
-            white-space: nowrap;
+            letter-spacing: 0.045em;
 
             text-transform: uppercase;
 
@@ -229,7 +220,7 @@
 
             justify-content: center;
 
-            gap: 10px;
+            gap: 13px;
 
             border:
                 1px solid
@@ -257,11 +248,6 @@
             box-shadow:
                 0 8px 30px
                 rgba(0, 0, 0, 0.28);
-
-            /*
-             * Faster movement:
-             * 2 seconds per cycle.
-             */
 
             animation:
                 buttonPulse 2s
@@ -292,10 +278,6 @@
         }
 
 
-        /* =========================================
-           BUTTON HOVER / TAP
-        ========================================= */
-
         .exclusive-button:hover {
 
             background:
@@ -313,22 +295,86 @@
 
 
         /* =========================================
-           STAR
+           REAL LOCK ICON
         ========================================= */
 
-        .star {
+        .lock {
+            position: relative;
 
-            font-size: 15px;
-
-            line-height: 1;
-
-            color: #ffffff;
+            width: 16px;
+            height: 17px;
 
             display: inline-block;
 
-            text-shadow:
-                0 2px 8px
-                rgba(255, 255, 255, 0.18);
+            flex-shrink: 0;
+        }
+
+
+        /* Lock body */
+
+        .lock::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 1px;
+            bottom: 0;
+
+            width: 14px;
+            height: 11px;
+
+            border:
+                1.7px solid #ffffff;
+
+            border-radius: 2px;
+        }
+
+
+        /* Lock shackle */
+
+        .lock::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 4px;
+            top: 0;
+
+            width: 8px;
+            height: 9px;
+
+            border:
+                1.7px solid #ffffff;
+
+            border-bottom: none;
+
+            border-radius:
+                7px 7px 0 0;
+        }
+
+
+        /* Small keyhole */
+
+        .keyhole {
+
+            position: absolute;
+
+            left: 50%;
+            top: 9px;
+
+            width: 3px;
+            height: 4px;
+
+            transform:
+                translateX(-50%);
+
+            background: #ffffff;
+
+            border-radius: 50%;
+
+            z-index: 2;
         }
 
 
@@ -405,15 +451,13 @@
 
             .name {
 
-                font-size: 30px;
+                font-size: 38px;
             }
 
 
             .handle {
 
                 margin-top: 8px;
-
-                font-size: 10px;
             }
 
 
@@ -426,36 +470,6 @@
             .footer {
 
                 margin-top: 12px;
-            }
-        }
-
-
-        /* =========================================
-           VERY SMALL WIDTHS
-        ========================================= */
-
-        @media (max-width: 360px) {
-
-            .content {
-
-                padding-left: 16px;
-                padding-right: 16px;
-            }
-
-
-            .name {
-
-                font-size: 28px;
-
-                letter-spacing: 0.015em;
-            }
-
-
-            .handle {
-
-                font-size: 9px;
-
-                letter-spacing: 0.22em;
             }
         }
 
@@ -518,7 +532,8 @@
             <div class="identity">
 
                 <h1 class="name">
-                    Meghan Gomez
+                    Meghan<br>
+                    Gomez
                 </h1>
 
                 <div class="handle">
@@ -536,8 +551,8 @@
                 id="onlyfansButton"
             >
 
-                <span class="star">
-                    ★
+                <span class="lock">
+                    <span class="keyhole"></span>
                 </span>
 
                 <span>
