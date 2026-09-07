@@ -79,7 +79,7 @@
             width: 100%;
             height: 100%;
 
-            background-image: url("IMG_5926%202.jpg");
+            background-image: url("IMG_5926%203.jpg");
 
             background-size: cover;
 
@@ -141,26 +141,41 @@
         ========================================= */
 
         .identity {
+            width: 100%;
+
             text-align: center;
 
             margin-bottom: 22px;
         }
 
 
+        /* =========================================
+           NAME — SINGLE LINE
+        ========================================= */
+
         .name {
+            width: 100%;
+
             font-family:
                 Georgia,
                 "Times New Roman",
                 serif;
 
-            font-size:
-                clamp(40px, 11vw, 58px);
+            /*
+             * Smaller responsive size so the full
+             * name stays on ONE line on mobile.
+             */
 
-            line-height: 0.92;
+            font-size:
+                clamp(30px, 9.5vw, 52px);
+
+            line-height: 1;
 
             font-weight: 700;
 
-            letter-spacing: 0.045em;
+            letter-spacing: 0.025em;
+
+            white-space: nowrap;
 
             text-transform: uppercase;
 
@@ -172,6 +187,10 @@
                 0 10px 28px rgba(0, 0, 0, 0.30);
         }
 
+
+        /* =========================================
+           INSTAGRAM HANDLE
+        ========================================= */
 
         .handle {
             margin-top: 12px;
@@ -239,8 +258,13 @@
                 0 8px 30px
                 rgba(0, 0, 0, 0.28);
 
+            /*
+             * Faster movement:
+             * 2 seconds per cycle.
+             */
+
             animation:
-                buttonPulse 2.4s
+                buttonPulse 2s
                 ease-in-out
                 infinite;
 
@@ -267,6 +291,10 @@
             }
         }
 
+
+        /* =========================================
+           BUTTON HOVER / TAP
+        ========================================= */
 
         .exclusive-button:hover {
 
@@ -377,13 +405,15 @@
 
             .name {
 
-                font-size: 38px;
+                font-size: 30px;
             }
 
 
             .handle {
 
                 margin-top: 8px;
+
+                font-size: 10px;
             }
 
 
@@ -396,6 +426,36 @@
             .footer {
 
                 margin-top: 12px;
+            }
+        }
+
+
+        /* =========================================
+           VERY SMALL WIDTHS
+        ========================================= */
+
+        @media (max-width: 360px) {
+
+            .content {
+
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+
+            .name {
+
+                font-size: 28px;
+
+                letter-spacing: 0.015em;
+            }
+
+
+            .handle {
+
+                font-size: 9px;
+
+                letter-spacing: 0.22em;
             }
         }
 
