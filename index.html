@@ -294,88 +294,99 @@
         }
 
 
-        /* =========================================
-           REAL LOCK ICON
-        ========================================= */
+  /* =========================================
+   REAL LOCK ICON
+========================================= */
 
-        .lock {
-            position: relative;
+.lock {
+    position: relative;
 
-            width: 16px;
-            height: 17px;
+    width: 17px;
+    height: 18px;
 
-            display: inline-block;
+    display: inline-block;
 
-            flex-shrink: 0;
-        }
-
-
-        /* Lock body */
-
-        .lock::before {
-
-            content: "";
-
-            position: absolute;
-
-            left: 1px;
-            bottom: 0;
-
-            width: 14px;
-            height: 11px;
-
-            border:
-                1.7px solid #ffffff;
-
-            border-radius: 2px;
-        }
+    flex-shrink: 0;
+}
 
 
-        /* Lock shackle */
+/* Lock shackle */
 
-        .lock::after {
+.lock::before {
+    content: "";
 
-            content: "";
+    position: absolute;
 
-            position: absolute;
+    left: 3px;
+    top: 0;
 
-            left: 4px;
-            top: 0;
+    width: 11px;
+    height: 9px;
 
-            width: 8px;
-            height: 9px;
+    border: 1.7px solid #ffffff;
 
-            border:
-                1.7px solid #ffffff;
+    border-bottom: none;
 
-            border-bottom: none;
-
-            border-radius:
-                7px 7px 0 0;
-        }
+    border-radius: 7px 7px 0 0;
+}
 
 
-        /* Small keyhole */
+/* Lock body */
 
-        .keyhole {
+.lock::after {
+    content: "";
 
-            position: absolute;
+    position: absolute;
 
-            left: 50%;
-            top: 9px;
+    left: 1px;
+    bottom: 0;
 
-            width: 3px;
-            height: 4px;
+    width: 15px;
+    height: 12px;
 
-            transform:
-                translateX(-50%);
+    border: 1.7px solid #ffffff;
 
-            background: #ffffff;
+    border-radius: 2px;
 
-            border-radius: 50%;
+    background: transparent;
+}
 
-            z-index: 2;
-        }
+
+/* Keyhole */
+
+.keyhole {
+    position: absolute;
+
+    left: 50%;
+    top: 10px;
+
+    width: 3.5px;
+    height: 4.5px;
+
+    transform: translateX(-50%);
+
+    background: #ffffff;
+
+    border-radius: 50%;
+
+    z-index: 3;
+}
+
+.keyhole::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 3px;
+
+    width: 1.5px;
+    height: 3px;
+
+    transform: translateX(-50%);
+
+    background: #ffffff;
+}
 
 
         /* =========================================
