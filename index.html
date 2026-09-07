@@ -213,6 +213,8 @@
             width: 100%;
 
             height: 58px;
+            
+            overflow: hidden;
 
             display: flex;
 
@@ -260,6 +262,66 @@
                 border-color 0.25s ease;
         }
 
+        /* =========================================
+   SUBTLE LIGHT SWEEP
+========================================= */
+
+.exclusive-button::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -70%;
+
+    width: 35%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.04) 25%,
+            rgba(255, 255, 255, 0.65) 50%,
+            rgba(255, 255, 255, 0.04) 75%,
+            transparent 100%
+        );
+
+    transform: skewX(-20deg);
+
+    animation:
+        lightSweep 4.5s
+        ease-in-out
+        infinite;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+@keyframes lightSweep {
+
+    0% {
+        left: -70%;
+    }
+
+    18% {
+        left: 120%;
+    }
+
+    100% {
+        left: 120%;
+    }
+}
+
+        /* Keep button content above the light */
+
+        .exclusive-button span {
+    position: relative;
+    z-index: 2;
+}
+
 
         /* =========================================
            BUTTON ANIMATION
@@ -295,14 +357,14 @@
 
 
 /* =========================================
-   REAL LOCK ICON
+   REAL LOCK ICON — SMALL
 ========================================= */
 
 .lock {
     position: relative;
 
-    width: 18px;
-    height: 19px;
+    width: 9px;
+    height: 10px;
 
     display: inline-block;
 
@@ -310,40 +372,32 @@
 }
 
 
-/* =========================================
-   LOCK SHACKLE
-   The lower parts are intentionally hidden
-   behind the lock body.
-========================================= */
+/* Lock shackle */
 
 .lock::before {
     content: "";
 
     position: absolute;
 
-    left: 3px;
+    left: 1.5px;
     top: 0;
 
-    width: 12px;
-    height: 12px;
+    width: 6px;
+    height: 6px;
 
     border:
-        1.8px solid #ffffff;
+        1.2px solid #ffffff;
 
     border-bottom: none;
 
     border-radius:
-        8px 8px 0 0;
+        5px 5px 0 0;
 
     z-index: 1;
 }
 
 
-/* =========================================
-   LOCK BODY
-   This sits over the shackle and hides its
-   lower legs.
-========================================= */
+/* Lock body */
 
 .lock::after {
     content: "";
@@ -351,34 +405,32 @@
     position: absolute;
 
     left: 0;
-    top: 7px;
+    top: 4px;
 
-    width: 18px;
-    height: 12px;
+    width: 9px;
+    height: 6px;
 
     background: rgba(8, 8, 8, 0.96);
 
     border:
-        1.8px solid #ffffff;
+        1.2px solid #ffffff;
 
-    border-radius: 2.5px;
+    border-radius: 1.5px;
 
     z-index: 2;
 }
 
 
-/* =========================================
-   KEYHOLE
-========================================= */
+/* Keyhole */
 
 .keyhole {
     position: absolute;
 
     left: 50%;
-    top: 10px;
+    top: 5.5px;
 
-    width: 4px;
-    height: 4px;
+    width: 2px;
+    height: 2px;
 
     transform:
         translateX(-50%);
@@ -397,17 +449,15 @@
     position: absolute;
 
     left: 50%;
-    top: 3px;
+    top: 1.5px;
 
-    width: 1.8px;
-    height: 4px;
+    width: 1px;
+    height: 2px;
 
     transform:
         translateX(-50%);
 
     background: #ffffff;
-
-    border-radius: 0 0 1px 1px;
 }
 
         /* =========================================
