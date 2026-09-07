@@ -1,48 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
 
     <title>Meghan Gomez</title>
 
-    <meta name="description" content="Meghan Gomez — Exclusive Content">
+    <meta
+        name="description"
+        content="Meghan Gomez — Exclusive Content"
+    >
 
     <style>
+
+        /* =========================================
+           RESET
+        ========================================= */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
         html,
         body {
             width: 100%;
             height: 100%;
-            background: #090909;
+            background: #080808;
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
             overflow: hidden;
         }
 
-        /* =========================================
-           FULL SCREEN
-        ========================================= */
 
         .page {
             position: relative;
+
             width: 100%;
             height: 100svh;
             min-height: 100svh;
+
             overflow: hidden;
-            background: #090909;
+
+            background: #080808;
         }
 
 
         /* =========================================
-           MAIN IMAGE
+           HERO IMAGE
         ========================================= */
 
         .hero-image {
@@ -56,10 +79,6 @@
 
             background-size: cover;
 
-            /*
-             * Slightly higher than center so Meghan's
-             * face remains the visual focus on mobile.
-             */
             background-position: center center;
 
             background-repeat: no-repeat;
@@ -83,7 +102,7 @@
                     rgba(0, 0, 0, 0.02) 38%,
                     rgba(0, 0, 0, 0.14) 58%,
                     rgba(0, 0, 0, 0.52) 78%,
-                    rgba(0, 0, 0, 0.88) 100%
+                    rgba(0, 0, 0, 0.90) 100%
                 );
         }
 
@@ -106,7 +125,7 @@
             padding:
                 0
                 20px
-                calc(28px + env(safe-area-inset-bottom));
+                calc(24px + env(safe-area-inset-bottom));
         }
 
 
@@ -116,15 +135,20 @@
 
         .identity {
             text-align: center;
+
             margin-bottom: 22px;
         }
 
+
         .name {
-            font-family: Georgia, "Times New Roman", serif;
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
             font-size: clamp(40px, 11vw, 58px);
 
-            line-height: 0.95;
+            line-height: 0.92;
 
             font-weight: 700;
 
@@ -137,6 +161,7 @@
             text-shadow:
                 0 3px 20px rgba(0, 0, 0, 0.55);
         }
+
 
         .handle {
             margin-top: 12px;
@@ -154,18 +179,20 @@
 
 
         /* =========================================
-           ONLYFANS BUTTON
+           EXCLUSIVE CONTENT BUTTON
         ========================================= */
 
         .exclusive-button {
+
             width: 100%;
             height: 58px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
-            gap: 12px;
+            gap: 13px;
 
             border: 1px solid rgba(255, 255, 255, 0.68);
 
@@ -195,82 +222,139 @@
                 border-color 0.25s ease;
         }
 
+
         .exclusive-button:hover {
+
             background: rgba(255, 255, 255, 0.12);
 
             border-color: #ffffff;
         }
 
+
         .exclusive-button:active {
+
             transform: scale(0.985);
         }
 
 
         /* =========================================
-           LOCK ICON
+           MINIMAL LOCK ICON
         ========================================= */
 
         .lock {
+
             width: 15px;
             height: 15px;
+
+            display: inline-block;
+
+            position: relative;
+        }
+
+
+        .lock::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 2px;
+            bottom: 0;
+
+            width: 11px;
+            height: 9px;
+
+            border: 1.5px solid #ffffff;
+
+            border-radius: 1px;
+        }
+
+
+        .lock::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 4px;
+            top: 0;
+
+            width: 7px;
+            height: 7px;
+
+            border:
+                1.5px solid #ffffff;
+
+            border-bottom: none;
+
+            border-radius:
+                5px 5px 0 0;
+        }
+
+
+        /* =========================================
+           CLEAN ARROW
+        ========================================= */
+
+        .arrow {
 
             display: inline-flex;
 
             align-items: center;
             justify-content: center;
 
-            position: relative;
-        }
+            width: 15px;
+            height: 15px;
 
-        .lock::before {
-            content: "";
+            font-size: 17px;
 
-            width: 10px;
-            height: 8px;
+            font-weight: 300;
 
-            border: 1.5px solid #ffffff;
+            line-height: 1;
 
-            border-radius: 1px;
-
-            position: absolute;
-
-            bottom: 0;
-        }
-
-        .lock::after {
-            content: "";
-
-            width: 6px;
-            height: 7px;
-
-            border: 1.5px solid #ffffff;
-
-            border-bottom: none;
-
-            border-radius: 5px 5px 0 0;
-
-            position: absolute;
-
-            top: 0;
+            color: #ffffff;
         }
 
 
         /* =========================================
-           FOOTER
+           PROFESSIONAL FOOTER
         ========================================= */
 
         .footer {
-            margin-top: 17px;
+
+            margin-top: 18px;
 
             text-align: center;
 
             font-size: 8px;
 
-            letter-spacing: 0.30em;
+            line-height: 1.6;
+
+            letter-spacing: 0.18em;
 
             text-transform: uppercase;
 
             color: rgba(255, 255, 255, 0.42);
+        }
+
+
+        .footer .copyright {
+
+            display: block;
+        }
+
+
+        .footer .website-credit {
+
+            display: block;
+
+            margin-top: 3px;
+
+            color: rgba(255, 255, 255, 0.28);
+
+            font-size: 7px;
+
+            letter-spacing: 0.16em;
         }
 
 
@@ -281,27 +365,38 @@
         @media (max-height: 700px) {
 
             .content {
+
                 padding-bottom:
                     calc(18px + env(safe-area-inset-bottom));
             }
 
+
             .identity {
+
                 margin-bottom: 17px;
             }
 
+
             .name {
+
                 font-size: 38px;
             }
 
+
             .handle {
+
                 margin-top: 8px;
             }
 
+
             .exclusive-button {
+
                 height: 54px;
             }
 
+
             .footer {
+
                 margin-top: 12px;
             }
         }
@@ -314,21 +409,28 @@
         @media (min-width: 700px) {
 
             body {
+
                 display: flex;
+
                 justify-content: center;
 
                 background: #050505;
             }
 
+
             .page {
+
                 width: 480px;
+
                 max-width: 480px;
 
                 box-shadow:
                     0 0 80px rgba(0, 0, 0, 0.65);
             }
         }
+
     </style>
+
 </head>
 
 
@@ -336,15 +438,23 @@
 
     <main class="page">
 
-        <!-- MAIN PHOTO -->
+
+        <!-- MAIN IMAGE -->
+
         <div class="hero-image"></div>
 
+
         <!-- DARK GRADIENT -->
+
         <div class="overlay"></div>
 
 
-        <!-- CONTENT -->
+        <!-- MAIN CONTENT -->
+
         <div class="content">
+
+
+            <!-- NAME + INSTAGRAM -->
 
             <div class="identity">
 
@@ -359,31 +469,46 @@
             </div>
 
 
-            <!-- ONLYFANS -->
+            <!-- ONLYFANS CTA -->
+
             <a
                 href="https://onlyfans.com/meghan_gomez"
                 class="exclusive-button"
                 id="onlyfansButton"
             >
+
                 <span class="lock"></span>
 
                 <span>
                     Exclusive Content
                 </span>
 
-                <span>
+                <span class="arrow">
                     ↗
                 </span>
+
             </a>
 
 
-            <div class="footer">
-                Meghan Gomez
-            </div>
+            <!-- PROFESSIONAL FOOTER -->
+
+            <footer class="footer">
+
+                <span class="copyright">
+                    © 2026 MeghanGomez.com · All Rights Reserved
+                </span>
+
+                <span class="website-credit">
+                    Official Website
+                </span>
+
+            </footer>
+
 
         </div>
 
     </main>
 
 </body>
+
 </html>
