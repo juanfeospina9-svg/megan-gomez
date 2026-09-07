@@ -294,15 +294,15 @@
         }
 
 
-  /* =========================================
+/* =========================================
    REAL LOCK ICON
 ========================================= */
 
 .lock {
     position: relative;
 
-    width: 17px;
-    height: 18px;
+    width: 18px;
+    height: 19px;
 
     display: inline-block;
 
@@ -310,7 +310,11 @@
 }
 
 
-/* Lock shackle */
+/* =========================================
+   LOCK SHACKLE
+   The lower parts are intentionally hidden
+   behind the lock body.
+========================================= */
 
 .lock::before {
     content: "";
@@ -320,39 +324,52 @@
     left: 3px;
     top: 0;
 
-    width: 11px;
-    height: 9px;
+    width: 12px;
+    height: 12px;
 
-    border: 1.7px solid #ffffff;
+    border:
+        1.8px solid #ffffff;
 
     border-bottom: none;
 
-    border-radius: 7px 7px 0 0;
+    border-radius:
+        8px 8px 0 0;
+
+    z-index: 1;
 }
 
 
-/* Lock body */
+/* =========================================
+   LOCK BODY
+   This sits over the shackle and hides its
+   lower legs.
+========================================= */
 
 .lock::after {
     content: "";
 
     position: absolute;
 
-    left: 1px;
-    bottom: 0;
+    left: 0;
+    top: 7px;
 
-    width: 15px;
+    width: 18px;
     height: 12px;
 
-    border: 1.7px solid #ffffff;
+    background: rgba(8, 8, 8, 0.96);
 
-    border-radius: 2px;
+    border:
+        1.8px solid #ffffff;
 
-    background: transparent;
+    border-radius: 2.5px;
+
+    z-index: 2;
 }
 
 
-/* Keyhole */
+/* =========================================
+   KEYHOLE
+========================================= */
 
 .keyhole {
     position: absolute;
@@ -360,10 +377,11 @@
     left: 50%;
     top: 10px;
 
-    width: 3.5px;
-    height: 4.5px;
+    width: 4px;
+    height: 4px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     background: #ffffff;
 
@@ -371,6 +389,7 @@
 
     z-index: 3;
 }
+
 
 .keyhole::after {
     content: "";
@@ -380,14 +399,16 @@
     left: 50%;
     top: 3px;
 
-    width: 1.5px;
-    height: 3px;
+    width: 1.8px;
+    height: 4px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     background: #ffffff;
-}
 
+    border-radius: 0 0 1px 1px;
+}
 
         /* =========================================
            FOOTER
