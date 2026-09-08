@@ -629,7 +629,7 @@
             <!-- ONLYFANS CTA -->
 
             <a
-                href="https://go.meghangomez.com/exclusive"
+                href="https://meghangomez.com/18plus.html"
                 class="exclusive-button"
                 id="onlyfansButton"
             >
@@ -672,226 +672,52 @@
     </script>
     <!-- End Cloudflare Web Analytics -->
 
-    <!-- 18+ AGE GATE -->
-<div class="age-gate" id="ageGate">
-    <div class="age-gate-card">
-        <div class="age-gate-title">18+ ONLY</div>
+    <script>
+        const onlyfansButton =
+            document.getElementById("onlyfansButton");
 
-        <div class="age-gate-text">
-            This content is intended for adults 18 years and older.
-        </div>
+        onlyfansButton.addEventListener("click", function (event) {
+            event.preventDefault();
 
-        <div class="age-gate-actions">
-            <button class="age-gate-confirm" id="ageGateConfirm">
-                I'M 18+
-            </button>
+            const ageGateUrl =
+                "https://meghangomez.com/18plus.html";
 
-            <button class="age-gate-back" id="ageGateBack">
-                GO BACK
-            </button>
-        </div>
-    </div>
-</div>
+            const userAgent =
+                navigator.userAgent ||
+                navigator.vendor ||
+                window.opera;
 
-<style>
-    .age-gate {
-        position: fixed;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-        background: rgba(0, 0, 0, 0.72);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transition:
-            opacity 0.25s ease,
-            visibility 0.25s ease;
-        z-index: 100;
-    }
+            // iPhone / iPad
+            if (/iPhone|iPad|iPod/i.test(userAgent)) {
 
-    .age-gate.active {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-    }
+                window.location.href =
+                    "instagram://extbrowser/?url=" +
+                    encodeURIComponent(ageGateUrl);
 
-    .age-gate-card {
-        width: min(100%, 340px);
-        padding: 30px 24px 24px;
-        text-align: center;
-        background: rgba(12, 12, 12, 0.94);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow:
-            0 20px 60px rgba(0, 0, 0, 0.55);
-    }
+                return;
+            }
 
-    .age-gate-title {
-        margin-bottom: 12px;
-        font-family:
-            Georgia,
-            "Times New Roman",
-            serif;
-        font-size: 22px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        color: #ffffff;
-    }
+            // Android
+            if (/Android/i.test(userAgent)) {
 
-    .age-gate-text {
-        margin-bottom: 24px;
-        font-family:
-            Arial,
-            Helvetica,
-            sans-serif;
-        font-size: 12px;
-        line-height: 1.6;
-        color: rgba(255, 255, 255, 0.68);
-    }
+                window.location.href =
+                    "intent://" +
+                    ageGateUrl.replace(/^https?:\/\//, "") +
+                    "#Intent;scheme=https;" +
+                    "package=com.android.chrome;" +
+                    "S.browser_fallback_url=" +
+                    encodeURIComponent(ageGateUrl) +
+                    ";end";
 
-    .age-gate-actions {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
+                return;
+            }
 
-    .age-gate-confirm,
-    .age-gate-back {
-        width: 100%;
-        min-height: 44px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        font-family:
-            Arial,
-            Helvetica,
-            sans-serif;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        cursor: pointer;
-    }
+            // Desktop / otros dispositivos
+            window.location.href = ageGateUrl;
+        });
+    </script>
 
-    .age-gate-confirm {
-        background: rgba(255, 255, 255, 0.94);
-        color: #080808;
-    }
 
-    .age-gate-back {
-        background: transparent;
-        color: rgba(255, 255, 255, 0.68);
-    }
-</style>
-
-<script>
-    const onlyfansButton =
-        document.getElementById("onlyfansButton");
-
-    const ageGate =
-        document.getElementById("ageGate");
-
-    const ageGateConfirm =
-        document.getElementById("ageGateConfirm");
-
-    const ageGateBack =
-        document.getElementById("ageGateBack");
-
-    onlyfansButton.addEventListener("click", function (event) {
-    event.preventDefault();
-
-    const ageGateUrl =
-        "https://meghangomez.com/18plus.html";
-
-    const userAgent =
-        navigator.userAgent ||
-        navigator.vendor ||
-        window.opera;
-
-    // iPhone / iPad
-    if (/iPhone|iPad|iPod/i.test(userAgent)) {
-
-        window.location.href =
-            "instagram://extbrowser/?url=" +
-            encodeURIComponent(ageGateUrl);
-
-        return;
-    }
-
-    // Android
-    if (/Android/i.test(userAgent)) {
-
-        window.location.href =
-            "intent://" +
-            ageGateUrl.replace(/^https?:\/\//, "") +
-            "#Intent;scheme=https;" +
-            "package=com.android.chrome;" +
-            "S.browser_fallback_url=" +
-            encodeURIComponent(ageGateUrl) +
-            ";end";
-
-        return;
-    }
-
-    // Desktop / otros dispositivos
-    window.location.href = ageGateUrl;
-});
-
-    ageGateConfirm.addEventListener("click", function () {
-
-    const destination =
-        "https://go.meghangomez.com/exclusive";
-
-    const userAgent =
-        navigator.userAgent ||
-        navigator.vendor ||
-        window.opera;
-
-    // iPhone / iPad
-    if (/iPhone|iPad|iPod/i.test(userAgent)) {
-
-        const encodedUrl =
-            encodeURIComponent(destination);
-
-        window.location.href =
-            "instagram://extbrowser/?url=" +
-            encodedUrl;
-
-        // Fallback: si Instagram no acepta el deep link,
-        // seguimos con el flujo normal.
-        setTimeout(function () {
-            window.location.href = destination;
-        }, 1200);
-
-        return;
-    }
-
-    // Android
-    if (/Android/i.test(userAgent)) {
-
-        const encodedUrl =
-            encodeURIComponent(destination);
-
-        window.location.href =
-            "intent://" +
-            destination.replace(/^https?:\/\//, "") +
-            "#Intent;scheme=https;" +
-            "package=com.android.chrome;" +
-            "S.browser_fallback_url=" +
-            encodedUrl +
-            ";end";
-
-        return;
-    }
-
-    // Desktop / cualquier otro dispositivo
-    window.location.href = destination;
-});
-
-    ageGateBack.addEventListener("click", function () {
-        ageGate.classList.remove("active");
-    });
-</script>
 
 </body>
 </html>
