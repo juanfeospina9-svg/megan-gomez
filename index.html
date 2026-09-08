@@ -626,97 +626,114 @@
             </div>
 
 
-            <!-- ONLYFANS CTA -->
+           <!-- ONLYFANS CTA -->
 
-            <a
-                href="https://meghangomez.com/18plus.html"
-                class="exclusive-button"
-                id="onlyfansButton"
-            >
+<a
+    href="https://go.meghangomez.com/exclusive"
+    class="exclusive-button"
+    id="onlyfansButton"
+>
 
-                <span class="lock">
-                    <span class="keyhole"></span>
-                </span>
+    <span class="lock">
+        <span class="keyhole"></span>
+    </span>
 
-                <span>
-                    Exclusive Content
-                </span>
+    <span>
+        Exclusive Content
+    </span>
 
-            </a>
-
-
-            <!-- PROFESSIONAL FOOTER -->
-
-            <footer class="footer">
-
-                <span class="copyright">
-                    © 2026 MeghanGomez.com · All Rights Reserved
-                </span>
-
-                <span class="website-credit">
-                    Official Website
-                </span>
-
-            </footer>
+</a>
 
 
-        </div>
+<!-- PROFESSIONAL FOOTER -->
 
-    </main>
+<footer class="footer">
 
-        <!-- Cloudflare Web Analytics -->
-    <script
-        type="module"
-        src="https://static.cloudflareinsights.com/beacon.min.js"
-        data-cf-beacon='{"token": "540f5a5083054195bcd1905015840e1a"}'>
-    </script>
-    <!-- End Cloudflare Web Analytics -->
+    <span class="copyright">
+        © 2026 MeghanGomez.com · All Rights Reserved
+    </span>
 
-    <script>
-        const onlyfansButton =
-            document.getElementById("onlyfansButton");
+    <span class="website-credit">
+        Official Website
+    </span>
 
-        onlyfansButton.addEventListener("click", function (event) {
+</footer>
+
+
+</div>
+
+</main>
+
+
+<!-- Cloudflare Web Analytics -->
+
+<script
+    type="module"
+    src="https://static.cloudflareinsights.com/beacon.min.js"
+    data-cf-beacon='{"token": "540f5a5083054195bcd1905015840e1a"}'>
+</script>
+
+<!-- End Cloudflare Web Analytics -->
+
+
+<script>
+
+    const onlyfansButton =
+        document.getElementById("onlyfansButton");
+
+    const destination =
+        "https://go.meghangomez.com/exclusive";
+
+    onlyfansButton.addEventListener(
+        "click",
+        function (event) {
+
             event.preventDefault();
-
-            const ageGateUrl =
-                "https://meghangomez.com/18plus.html";
 
             const userAgent =
                 navigator.userAgent ||
                 navigator.vendor ||
                 window.opera;
 
+
             // iPhone / iPad
+
             if (/iPhone|iPad|iPod/i.test(userAgent)) {
 
                 window.location.href =
                     "instagram://extbrowser/?url=" +
-                    encodeURIComponent(ageGateUrl);
+                    encodeURIComponent(destination);
 
                 return;
             }
 
+
             // Android
+
             if (/Android/i.test(userAgent)) {
 
                 window.location.href =
                     "intent://" +
-                    ageGateUrl.replace(/^https?:\/\//, "") +
+                    destination.replace(/^https?:\/\//, "") +
                     "#Intent;scheme=https;" +
                     "package=com.android.chrome;" +
                     "S.browser_fallback_url=" +
-                    encodeURIComponent(ageGateUrl) +
+                    encodeURIComponent(destination) +
                     ";end";
 
                 return;
             }
 
-            // Desktop / otros dispositivos
-            window.location.href = ageGateUrl;
-        });
-    </script>
 
+            // Desktop / otros dispositivos
+
+            window.location.href =
+                destination;
+
+        }
+    );
+
+</script>
 
 
 </body>
