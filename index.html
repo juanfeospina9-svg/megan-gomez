@@ -804,9 +804,55 @@
     });
 
     ageGateConfirm.addEventListener("click", function () {
+
+    const destination =
+        "https://go.meghangomez.com/exclusive";
+
+    const userAgent =
+        navigator.userAgent ||
+        navigator.vendor ||
+        window.opera;
+
+    // iPhone / iPad
+    if (/iPhone|iPad|iPod/i.test(userAgent)) {
+
+        const encodedUrl =
+            encodeURIComponent(destination);
+
         window.location.href =
-            "https://go.meghangomez.com/exclusive";
-    });
+            "instagram://extbrowser/?url=" +
+            encodedUrl;
+
+        // Fallback: si Instagram no acepta el deep link,
+        // seguimos con el flujo normal.
+        setTimeout(function () {
+            window.location.href = destination;
+        }, 1200);
+
+        return;
+    }
+
+    // Android
+    if (/Android/i.test(userAgent)) {
+
+        const encodedUrl =
+            encodeURIComponent(destination);
+
+        window.location.href =
+            "intent://" +
+            destination.replace(/^https?:\/\//, "") +
+            "#Intent;scheme=https;" +
+            "package=com.android.chrome;" +
+            "S.browser_fallback_url=" +
+            encodedUrl +
+            ";end";
+
+        return;
+    }
+
+    // Desktop / cualquier otro dispositivo
+    window.location.href = destination;
+});
 
     ageGateBack.addEventListener("click", function () {
         ageGate.classList.remove("active");
