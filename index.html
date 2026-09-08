@@ -672,9 +672,146 @@
     </script>
     <!-- End Cloudflare Web Analytics -->
 
-</body>
-</html>
+    <!-- 18+ AGE GATE -->
+<div class="age-gate" id="ageGate">
+    <div class="age-gate-card">
+        <div class="age-gate-title">18+ ONLY</div>
+
+        <div class="age-gate-text">
+            This content is intended for adults 18 years and older.
+        </div>
+
+        <div class="age-gate-actions">
+            <button class="age-gate-confirm" id="ageGateConfirm">
+                I'M 18+
+            </button>
+
+            <button class="age-gate-back" id="ageGateBack">
+                GO BACK
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .age-gate {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: rgba(0, 0, 0, 0.72);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition:
+            opacity 0.25s ease,
+            visibility 0.25s ease;
+        z-index: 100;
+    }
+
+    .age-gate.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .age-gate-card {
+        width: min(100%, 340px);
+        padding: 30px 24px 24px;
+        text-align: center;
+        background: rgba(12, 12, 12, 0.94);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow:
+            0 20px 60px rgba(0, 0, 0, 0.55);
+    }
+
+    .age-gate-title {
+        margin-bottom: 12px;
+        font-family:
+            Georgia,
+            "Times New Roman",
+            serif;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        color: #ffffff;
+    }
+
+    .age-gate-text {
+        margin-bottom: 24px;
+        font-family:
+            Arial,
+            Helvetica,
+            sans-serif;
+        font-size: 12px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.68);
+    }
+
+    .age-gate-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .age-gate-confirm,
+    .age-gate-back {
+        width: 100%;
+        min-height: 44px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        font-family:
+            Arial,
+            Helvetica,
+            sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        cursor: pointer;
+    }
+
+    .age-gate-confirm {
+        background: rgba(255, 255, 255, 0.94);
+        color: #080808;
+    }
+
+    .age-gate-back {
+        background: transparent;
+        color: rgba(255, 255, 255, 0.68);
+    }
+</style>
+
+<script>
+    const onlyfansButton =
+        document.getElementById("onlyfansButton");
+
+    const ageGate =
+        document.getElementById("ageGate");
+
+    const ageGateConfirm =
+        document.getElementById("ageGateConfirm");
+
+    const ageGateBack =
+        document.getElementById("ageGateBack");
+
+    onlyfansButton.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        ageGate.classList.add("active");
+    });
+
+    ageGateConfirm.addEventListener("click", function () {
+        window.location.href =
+            "https://go.meghangomez.com/exclusive";
+    });
+
+    ageGateBack.addEventListener("click", function () {
+        ageGate.classList.remove("active");
+    });
+</script>
 
 </body>
-
 </html>
