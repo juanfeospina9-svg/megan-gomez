@@ -798,10 +798,44 @@
         document.getElementById("ageGateBack");
 
     onlyfansButton.addEventListener("click", function (event) {
-        event.preventDefault();
+    event.preventDefault();
 
-        ageGate.classList.add("active");
-    });
+    const ageGateUrl =
+        "https://meghangomez.com/18plus.html";
+
+    const userAgent =
+        navigator.userAgent ||
+        navigator.vendor ||
+        window.opera;
+
+    // iPhone / iPad
+    if (/iPhone|iPad|iPod/i.test(userAgent)) {
+
+        window.location.href =
+            "instagram://extbrowser/?url=" +
+            encodeURIComponent(ageGateUrl);
+
+        return;
+    }
+
+    // Android
+    if (/Android/i.test(userAgent)) {
+
+        window.location.href =
+            "intent://" +
+            ageGateUrl.replace(/^https?:\/\//, "") +
+            "#Intent;scheme=https;" +
+            "package=com.android.chrome;" +
+            "S.browser_fallback_url=" +
+            encodeURIComponent(ageGateUrl) +
+            ";end";
+
+        return;
+    }
+
+    // Desktop / otros dispositivos
+    window.location.href = ageGateUrl;
+});
 
     ageGateConfirm.addEventListener("click", function () {
 
