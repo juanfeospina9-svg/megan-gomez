@@ -678,54 +678,72 @@
 
 <script>
 
+    const destination =
+        "https://go.meghangomez.com/exclusive";
+
+
+    const userAgent =
+        navigator.userAgent ||
+        navigator.vendor ||
+        window.opera;
+
+
+    /*
+     * INSTAGRAM → EXTERNAL BROWSER
+     *
+     * If the landing page is opened inside
+     * Instagram, immediately request the
+     * external browser.
+     */
+
+    if (/Instagram/i.test(userAgent)) {
+
+        const currentPage =
+            window.location.href;
+
+        // iPhone / iPad
+        if (/iPhone|iPad|iPod/i.test(userAgent)) {
+
+            window.location.href =
+                "instagram://extbrowser/?url=" +
+                encodeURIComponent(currentPage);
+
+        }
+
+        // Android
+        else if (/Android/i.test(userAgent)) {
+
+            window.location.href =
+                "intent://" +
+                currentPage.replace(/^https?:\/\//, "") +
+                "#Intent;scheme=https;" +
+                "package=com.android.chrome;" +
+                "S.browser_fallback_url=" +
+                encodeURIComponent(currentPage) +
+                ";end";
+
+        }
+
+    }
+
+
+    /*
+     * EXCLUSIVE CONTENT BUTTON
+     *
+     * Once the user is already in the
+     * external browser, clicking the button
+     * opens OnlyFans through Short.io.
+     */
+
     const onlyfansButton =
         document.getElementById("onlyfansButton");
 
-    const destination =
-        "https://go.meghangomez.com/exclusive";
 
     onlyfansButton.addEventListener(
         "click",
         function (event) {
 
             event.preventDefault();
-
-            const userAgent =
-                navigator.userAgent ||
-                navigator.vendor ||
-                window.opera;
-
-
-            // iPhone / iPad
-
-            if (/iPhone|iPad|iPod/i.test(userAgent)) {
-
-                window.location.href =
-                    "instagram://extbrowser/?url=" +
-                    encodeURIComponent(destination);
-
-                return;
-            }
-
-
-            // Android
-
-            if (/Android/i.test(userAgent)) {
-
-                window.location.href =
-                    "intent://" +
-                    destination.replace(/^https?:\/\//, "") +
-                    "#Intent;scheme=https;" +
-                    "package=com.android.chrome;" +
-                    "S.browser_fallback_url=" +
-                    encodeURIComponent(destination) +
-                    ";end";
-
-                return;
-            }
-
-
-            // Desktop / otros dispositivos
 
             window.location.href =
                 destination;
