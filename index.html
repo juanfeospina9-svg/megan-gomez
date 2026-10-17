@@ -379,21 +379,107 @@
             text-transform: uppercase;
             cursor: pointer;
         }
+
+        /* AGE VERIFICATION OVERLAY */
+        .age-gate {
+            position: fixed;
+            inset: 0;
+            z-index: 900000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 28px;
+            background: rgba(8, 8, 8, 0.97);
+            color: #ffffff;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .age-gate-inner {
+            width: 100%;
+            max-width: 340px;
+        }
+
+        .age-gate-brand {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            margin-bottom: 28px;
+        }
+
+        .age-gate-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 54px;
+            height: 54px;
+            margin-bottom: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            border-radius: 50%;
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+        }
+
+        .age-gate-title {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            margin-bottom: 14px;
+        }
+
+        .age-gate-message {
+            font-size: 13px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.72);
+            margin-bottom: 28px;
+        }
+
+        .age-gate-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 52px;
+            padding: 15px;
+            border: 1px solid #ffffff;
+            background: #ffffff;
+            color: #080808;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            cursor: pointer;
+        }
+
+        .age-gate-exit {
+            margin-top: 12px;
+            background: transparent;
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .age-gate-exit:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .age-gate-note {
+            margin-top: 22px;
+            font-size: 9px;
+            line-height: 1.6;
+            letter-spacing: 0.08em;
+            color: rgba(255, 255, 255, 0.4);
+        }
     </style>
 </head>
 
 <body>
 
     <main class="page">
-        <!-- MAIN PHOTO -->
         <div class="hero-image"></div>
-
-        <!-- DARK GRADIENT -->
         <div class="overlay"></div>
 
-        <!-- MAIN CONTENT -->
         <div class="content">
-            <!-- NAME + INSTAGRAM -->
             <div class="identity">
                 <h1 class="name">
                     Meghan<br>
@@ -405,7 +491,6 @@
                 </div>
             </div>
 
-            <!-- ONLYFANS CTA -->
             <a
                 href="https://go.meghangomez.com/exclusive"
                 class="exclusive-button"
@@ -415,12 +500,9 @@
                     <span class="keyhole"></span>
                 </span>
 
-                <span>
-                    Exclusive Content
-                </span>
+                <span>Exclusive Content</span>
             </a>
 
-            <!-- PROFESSIONAL FOOTER -->
             <footer class="footer">
                 <span class="copyright">
                     © 2026 MeghanGomez.com · All Rights Reserved
@@ -454,6 +536,11 @@
         const isInstagram =
             /Instagram/i.test(userAgent);
 
+        let ageVerified = false;
+
+        /*
+         * OPEN EXTERNAL BROWSER
+         */
         function openExternalBrowser(url) {
             // iPhone / iPad
             if (/iPhone|iPad|iPod/i.test(userAgent)) {
@@ -479,13 +566,10 @@
             }
         }
 
+        /*
+         * INSTAGRAM BROWSER BLOCKER
+         */
         if (isInstagram) {
-            /*
-             * Block the landing inside Instagram.
-             * The external browser will load the same
-             * page without this overlay if it is opened
-             * successfully.
-             */
             const blocker = document.createElement("div");
 
             blocker.className = "instagram-blocker";
@@ -524,14 +608,119 @@
             // Immediately request the external browser.
             openExternalBrowser(window.location.href);
 
-            // If the prompt was cancelled, allow another attempt.
+            // Allow the visitor to retry if they cancelled.
             document.getElementById("retryExternal")
                 .addEventListener("click", function () {
                     openExternalBrowser(window.location.href);
                 });
         }
 
-        // CTA: preserve the existing Short.io destination.
+        /*
+         * AGE VERIFICATION
+         * Displayed outside Instagram's in-app browser.
+         */
+        if (!isInstagram) {
+            const ageGate = document.createElement("div");
+
+            ageGate.className = "age-gate";
+            ageGate.setAttribute("role", "dialog");
+            ageGate.setAttribute("aria-modal", "true");
+            ageGate.setAttribute("aria-labelledby", "ageGateTitle");
+
+            ageGate.innerHTML = `
+                <div class="age-gate-inner">
+                    <div class="age-gate-brand">
+                        MEGHAN GOMEZ
+                    </div>
+
+                    <div class="age-gate-badge">
+                        18+
+                    </div>
+
+                    <h2 class="age-gate-title" id="ageGateTitle">
+                        AGE VERIFICATION
+                    </h2>
+
+                    <p class="age-gate-message">
+                        This website links to adult content intended
+                        exclusively for individuals aged 18 and older.
+                        Please confirm that you are at least 18 years old
+                        to continue.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="age-gate-button"
+                        id="confirmAge"
+                    >
+                        I AM 18 OR OLDER
+                    </button>
+
+                    <button
+                        type="button"
+                        class="age-gate-button age-gate-exit"
+                        id="exitAgeGate"
+                    >
+                        EXIT
+                    </button>
+
+                    <p class="age-gate-note">
+                        By continuing, you confirm that you are at least
+                        18 years old or the age of majority in your
+                        jurisdiction, whichever is higher.
+                    </p>
+                </div>
+            `;
+
+            document.body.appendChild(ageGate);
+
+            document.documentElement.style.overflow = "hidden";
+            document.body.style.overflow = "hidden";
+
+            /*
+             * Confirming age reveals the landing.
+             * It does not automatically redirect to OnlyFans.
+             */
+            document.getElementById("confirmAge")
+                .addEventListener("click", function () {
+                    ageVerified = true;
+
+                    ageGate.remove();
+
+                    document.documentElement.style.overflow = "";
+                    document.body.style.overflow = "";
+                });
+
+            /*
+             * EXIT keeps the visitor away from the landing
+             * and does not open the adult destination.
+             */
+            document.getElementById("exitAgeGate")
+                .addEventListener("click", function () {
+                    ageGate.innerHTML = `
+                        <div class="age-gate-inner">
+                            <div class="age-gate-brand">
+                                MEGHAN GOMEZ
+                            </div>
+
+                            <h2 class="age-gate-title">
+                                ACCESS NOT CONTINUED
+                            </h2>
+
+                            <p class="age-gate-message">
+                                You have chosen not to confirm your age.
+                                You may close this page.
+                            </p>
+                        </div>
+                    `;
+                });
+        }
+
+        /*
+         * EXCLUSIVE CONTENT CTA
+         * Requires age confirmation and blocks navigation
+         * from Instagram's in-app browser.
+         */
         const onlyfansButton =
             document.getElementById("onlyfansButton");
 
@@ -541,8 +730,11 @@
                 function (event) {
                     event.preventDefault();
 
-                    // Never navigate to OnlyFans from Instagram's webview.
                     if (isInstagram) {
+                        return;
+                    }
+
+                    if (!ageVerified) {
                         return;
                     }
 
